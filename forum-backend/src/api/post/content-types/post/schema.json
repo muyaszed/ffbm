@@ -28,6 +28,12 @@
       "relation": "oneToMany",
       "target": "api::reply.reply",
       "mappedBy": "post"
+    },
+    "forum": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::forum.forum",
+      "inversedBy": "posts"
     }
   }
 }

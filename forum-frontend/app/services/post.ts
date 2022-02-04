@@ -42,6 +42,8 @@ export type ReplyData = {
   meta: Meta;
 };
 
+export type NewPost = Pick<PostAttr, "title" | "content">;
+
 export async function getPosts() {
   //   const query = new URLSearchParams("populate[0]=replies");
 
@@ -68,4 +70,18 @@ export async function getPost(id: string | undefined) {
   return post.data;
 }
 
-export async function addPost(post: PostAttr) {}
+export async function addPost(post: NewPost) {
+  const response = await fetch("http://localhost:1337/api/posts", {
+    method: "POST",
+    headers: {
+      "content-type": "application/json",
+    },
+    body: JSON.stringify({
+      data: post,
+    }),
+  });
+
+  console.log(response);
+
+  return response.json();
+}

@@ -1,6 +1,6 @@
 import { useLoaderData } from "remix";
 import type { LoaderFunction } from "remix";
-import { getPost, Post } from "~/post";
+import { getPost, Post } from "~/services/post";
 
 export const loader: LoaderFunction = async ({ params }) => {
   return getPost(params.id);

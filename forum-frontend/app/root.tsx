@@ -10,7 +10,7 @@ import {
 import type { MetaFunction } from "remix";
 
 export const meta: MetaFunction = () => {
-  return { title: "New Remix App" };
+  return { title: "Fnhon Malaysia Community" };
 };
 
 export default function App() {
@@ -25,6 +25,8 @@ export default function App() {
       <body>
         <Link to="/">Home</Link>
         <Link to="/posts">Posts</Link>
+        <Link to="/register">Register</Link>
+        <Link to="/login">Login</Link>
         <Outlet />
         <ScrollRestoration />
         <Scripts />
