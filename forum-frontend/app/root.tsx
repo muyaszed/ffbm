@@ -6,14 +6,40 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  LoaderFunction,
+  useLoaderData,
+  ActionFunction,
+  useSubmit,
+  Form,
 } from "remix";
 import type { MetaFunction } from "remix";
+import { authenticator } from "./services/auth.server";
+import { UserResponse } from "./services/auth";
 
 export const meta: MetaFunction = () => {
   return { title: "Fnhon Malaysia Community" };
 };
 
+export const loader: LoaderFunction = async ({ request }) => {
+  let user = await authenticator.isAuthenticated(request);
+  console.log("loader data root", user);
+  return user;
+};
+
+export let action: ActionFunction = async ({ request }) => {
+  console.log("Action logut", request);
+  await authenticator.logout(request, { redirectTo: "/" });
+};
+
 export default function App() {
+  const data = useLoaderData<UserResponse>();
+  // const submit = useSubmit();
+
+  // function handleLogout() {
+  //   console.log("Handle logout");
+  //   submit(null, { replace: true });
+  // }
+
   return (
     <html lang="en">
       <head>
@@ -25,8 +51,17 @@ export default function App() {
       <body>
         <Link to="/">Home</Link>
         <Link to="/posts">Posts</Link>
-        <Link to="/register">Register</Link>
-        <Link to="/login">Login</Link>
+        {!data ? (
+          <>
+            <Link to="/register">Register</Link>
+            <Link to="/login">Login</Link>
+          </>
+        ) : (
+          <Form method="post">
+            <button type="submit">Logout</button>
+          </Form>
+        )}
+
         <Outlet />
         <ScrollRestoration />
         <Scripts />

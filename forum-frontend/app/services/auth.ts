@@ -6,7 +6,27 @@ export type NewUser = {
   password: string;
 };
 
-export type UserPayload = Omit<NewUser, "username">;
+export type UserPayload = {
+  identifier: string;
+  password: string;
+};
+
+export type User = {
+  id: number;
+  username: string;
+  email: string;
+  provider: string;
+  confirmed: boolean;
+  blocked: boolean;
+  cretaedAt: string;
+  updatedAt: string;
+};
+
+export type UserResponse = {
+  jwt: string;
+  user: User;
+  error?: Error;
+};
 
 export async function addNewUser(user: NewUser) {
   const response = await fetch(
