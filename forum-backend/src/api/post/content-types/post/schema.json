@@ -29,10 +29,10 @@
       "target": "api::reply.reply",
       "mappedBy": "post"
     },
-    "forum": {
+    "category": {
       "type": "relation",
       "relation": "manyToOne",
-      "target": "api::forum.forum",
+      "target": "api::category.category",
       "inversedBy": "posts"
     }
   }

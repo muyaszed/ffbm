@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * forum router.
+ * category router.
  */
 
 const { createCoreRouter } = require('@strapi/strapi').factories;
 
-module.exports = createCoreRouter('api::forum.forum');
+module.exports = createCoreRouter('api::category.category');

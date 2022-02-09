@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "forums",
+  "collectionName": "categories",
   "info": {
-    "singularName": "forum",
-    "pluralName": "forums",
-    "displayName": "Forum"
+    "singularName": "category",
+    "pluralName": "categories",
+    "displayName": "Category"
   },
   "options": {
     "draftAndPublish": true
@@ -18,7 +18,7 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::post.post",
-      "mappedBy": "forum"
+      "mappedBy": "category"
     }
   }
 }

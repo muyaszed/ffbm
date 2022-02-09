@@ -1,8 +1,8 @@
 import { useLoaderData, Link, Form, ActionFunction } from "remix";
 import { getPosts, addPost, Post } from "~/services/post";
 
-export const loader = () => {
-  return getPosts();
+export const loader = async () => {
+  return await getPosts();
 };
 
 export const action: ActionFunction = async ({ request }) => {

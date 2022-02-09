@@ -3,7 +3,7 @@ import type { LoaderFunction } from "remix";
 import { getPost, Post } from "~/services/post";
 
 export const loader: LoaderFunction = async ({ params }) => {
-  return getPost(params.id);
+  return await getPost(params.id);
 };
 
 export default function PostId() {

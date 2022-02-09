@@ -1,0 +1,100 @@
+.main-nav-container {
+  display: flex;
+  height: 100%;
+  overflow: hidden;
+
+  .main-header-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: #efc9af;
+
+    .main-header-upper {
+      display: flex;
+      flex-direction: row;
+      width: 1024px;
+      margin: auto;
+      min-height: 100px;
+
+      .main-header-upper-left {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        width: 30%;
+        position: relative;
+        .main-header-logo {
+          width: 90px;
+        }
+        .main-header-title {
+          padding: 0 10px;
+          text-transform: uppercase;
+          font-size: 1.1rem;
+          color: white;
+        }
+        .search-input {
+          display: none;
+        }
+      }
+      .main-header-upper-right {
+        display: none;
+      }
+      .main-header-upper-right-large {
+        width: 70%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        .search-input-large {
+          height: 50px;
+          width: 300px;
+          margin-right: 20px;
+          border: none;
+          border-radius: 5px;
+        }
+
+        .search-button {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          background-color: #1f8fc0;
+          height: 50px;
+          width: 60px;
+          color: white;
+          font-size: 1.7rem;
+          border-radius: 5px;
+          margin-right: 50px;
+        }
+        .user-profile-large-wrapper {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          border-left: 1px solid #104c91;
+          height: 50px;
+          padding-left: 50px;
+          color: #104c91;
+
+          .auth-text {
+            margin-left: 50px;
+            text-transform: uppercase;
+          }
+        }
+      }
+    }
+
+    .main-header-lower {
+      width: 100%;
+      min-height: 50px;
+      background-color: #104c91;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #efc9af;
+
+      .main-header-lower-hamburger,
+      .main-header-lower-profile {
+        display: none;
+      }
+    }
+  }
+}
